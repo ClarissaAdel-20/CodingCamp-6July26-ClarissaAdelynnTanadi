@@ -1,0 +1,14 @@
+{
+  "name": "expense-budget-visualizer",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build required for static site'",
+    "start": "node server.js",
+    "lint": "echo 'No lint required'"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

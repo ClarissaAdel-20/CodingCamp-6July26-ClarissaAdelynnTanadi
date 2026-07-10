@@ -1,0 +1,6 @@
+{
+  "name": "Expense & Budget Visualizer",
+  "description": "A visual expense and budget tracker to display spending distributions and limits.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

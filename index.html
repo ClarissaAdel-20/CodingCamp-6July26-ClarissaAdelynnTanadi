@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div id="balance-display" aria-live="polite">$0.00</div>
+  </header>
+
+  <main>
+
+    <section id="input-section" aria-labelledby="input-heading">
+      <h2 id="input-heading">Add Transaction</h2>
+
+      <form id="transaction-form" novalidate>
+        <div class="form-group">
+          <label for="item-name">Item Name</label>
+          <input
+            type="text"
+            id="item-name"
+            name="item-name"
+            maxlength="100"
+            placeholder="e.g. Coffee"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="item-name-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            min="0.01"
+            step="0.01"
+            placeholder="0.00"
+          />
+          <span class="error-msg" id="amount-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="category-select">Category</label>
+          <select id="category-select" name="category-select">
+            <option value="">-- Select a category --</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <span class="error-msg" id="category-select-error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
+
+    <section id="list-section" aria-labelledby="list-heading">
+      <h2 id="list-heading">Transactions</h2>
+      <ul id="transaction-list" aria-label="Transaction list">
+        <li class="empty-state">No transactions yet.</li>
+      </ul>
+    </section>
+
+    <section id="chart-section" aria-labelledby="chart-heading">
+      <h2 id="chart-heading">Spending Distribution</h2>
+      <canvas id="spending-chart" aria-label="Spending distribution pie chart" role="img"></canvas>
+      <p id="chart-empty">No data to display.</p>
+    </section>
+
+    <section id="limits-section" aria-labelledby="limits-heading">
+      <h2 id="limits-heading">Spending Limits</h2>
+      <div id="limits-list"></div>
+    </section>
+
+    <section id="categories-section" aria-labelledby="categories-heading">
+      <h2 id="categories-heading">Manage Categories</h2>
+      <form id="category-form" novalidate>
+        <div class="form-group">
+          <label for="new-category">New Category</label>
+          <input
+            type="text"
+            id="new-category"
+            name="new-category"
+            maxlength="50"
+            placeholder="e.g. Healthcare"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="new-category-error" aria-live="polite"></span>
+        </div>
+        <button type="submit">Add Category</button>
+      </form>
+      <ul id="category-list" aria-label="Category list"></ul>
+    </section>
+
+    <nav id="summary-nav" aria-label="Monthly summary navigation">
+      <button id="summary-toggle" type="button" aria-expanded="false" aria-controls="summary-section">
+        View Monthly Summary
+      </button>
+    </nav>
+
+    <section id="summary-section" aria-labelledby="summary-heading" hidden>
+      <h2 id="summary-heading">Monthly Summary</h2>
+      <div id="summary-content"></div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="js/app.js" defer></script>
+
+</body>
+</html>
